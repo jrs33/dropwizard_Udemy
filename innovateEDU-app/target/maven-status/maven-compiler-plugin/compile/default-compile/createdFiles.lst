@@ -1,3 +1,4 @@
 com/innovateEDU/app/resources/HelloResource.class
 com/innovateEDU/app/innovateEDUConfiguration.class
 com/innovateEDU/app/innovateEDUApplication.class
+com/innovateEDU/app/health/HelloResourceTest.class
