@@ -5,6 +5,7 @@ import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 
 import com.innovateEDU.app.resources.HelloResource;
+import com.innovateEDU.app.resources.HelloJsonResource;
 import com.innovateEDU.app.health.HelloResourceTest;
 
 public class innovateEDUApplication extends Application<innovateEDUConfiguration> {
@@ -27,6 +28,7 @@ public class innovateEDUApplication extends Application<innovateEDUConfiguration
 
         // Register Jersey resources in Environment
         environment.jersey().register(new HelloResource());
+        environment.jersey().register(new HelloJsonResource());
 
     }
 
