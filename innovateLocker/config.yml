@@ -11,3 +11,9 @@ server:
       keyStorePath: innovateEDU.keystore
       keyStorePassword: p@ssw0rd
       validateCerts: false
+
+database:
+  driverClass: com.mysql.jdbc.Driver
+  user: root
+  password: 1
+  url: jdbc:mysql://localhost:3306/innovateEDU
