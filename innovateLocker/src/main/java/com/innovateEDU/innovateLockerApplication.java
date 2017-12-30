@@ -3,8 +3,10 @@ package com.innovateEDU;
 import io.dropwizard.Application;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
+import io.dropwizard.auth.*
 
 import com.innovateEDU.resources.HelloResource;
+import com.innovateEDU.auth.HelloAuthenticator;
 
 public class innovateLockerApplication extends Application<innovateLockerConfiguration> {
 
@@ -29,7 +31,9 @@ public class innovateLockerApplication extends Application<innovateLockerConfigu
         environment.jersey().register(
                 new HelloResource()
         );
-        
+        environment.jersey().register(
+
+        );
 
     }
 
