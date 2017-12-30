@@ -29,6 +29,7 @@ public class innovateLockerApplication extends Application<innovateLockerConfigu
         environment.jersey().register(
                 new HelloResource()
         );
+        
 
     }
 
