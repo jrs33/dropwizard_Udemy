@@ -1,12 +1,17 @@
 package com.innovateEDU;
 
 import io.dropwizard.Application;
+import io.dropwizard.auth.*;
+import io.dropwizard.auth.basic.BasicCredentialAuthFilter;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
-import io.dropwizard.auth.*
+
+import org.glassfish.jersey.server.filter.RolesAllowedDynamicFeature;
 
 import com.innovateEDU.resources.HelloResource;
 import com.innovateEDU.auth.HelloAuthenticator;
+import com.innovateEDU.auth.HelloAuthorizer;
+import com.innovateEDU.core.User;
 
 public class innovateLockerApplication extends Application<innovateLockerConfiguration> {
 
@@ -31,9 +36,14 @@ public class innovateLockerApplication extends Application<innovateLockerConfigu
         environment.jersey().register(
                 new HelloResource()
         );
-        environment.jersey().register(
-
-        );
+        environment.jersey().register(new AuthDynamicFeature(
+                new BasicCredentialAuthFilter.Builder<User>()
+                        .setAuthenticator(new HelloAuthenticator(configuration.getPassword()))
+                        .setAuthorizer(new HelloAuthorizer())
+                        .setRealm("SECURITY REALM")
+                        .buildAuthFilter()
+        ));
+        environment.jersey().register(RolesAllowedDynamicFeature.class);
 
     }
 
