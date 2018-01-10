@@ -20,5 +20,6 @@
         </createTable>
         <comment>A script to create the users table</comment>
     </changeSet>
+    
 
 </databaseChangeLog>
