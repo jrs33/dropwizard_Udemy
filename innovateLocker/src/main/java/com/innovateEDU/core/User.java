@@ -7,6 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import java.security.Principal;
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -19,7 +20,7 @@ import java.util.Objects;
                 query = "select u from User u where u.username = :username and u.password = :password")
 
 })
-public class User {
+public class User implements Principal{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -77,17 +78,15 @@ public class User {
         this.password = password;
     }
 
-    public String getUsername() {
+    public String getName() {
         return username;
     }
 
-    public void setUsername(String username) {
+    public void setName(String username) {
         this.username = username;
     }
 
-    public long getId() {
-        return id;
-    }
+    public long getId() { return id; }
 
     public void setId(long id) {
         this.id = id;
