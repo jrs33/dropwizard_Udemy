@@ -9,6 +9,12 @@
     <maven>3.0.0</maven>
   </prerequisites>
   <build>
+    <resources>
+      <resource>
+        <filtering>true</filtering>
+        <directory>src/main/resources</directory>
+      </resource>
+    </resources>
     <plugins>
       <plugin>
         <artifactId>maven-shade-plugin</artifactId>
@@ -84,6 +90,18 @@
             </goals>
           </execution>
         </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.liquibase</groupId>
+        <artifactId>liquibase-maven-plugin</artifactId>
+        <version>3.4.1</version>
+        <configuration>
+          <changeLogFile>src/main/resources/migrations.xml</changeLogFile>
+          <driver>com.mysql.jdbc.Driver</driver>
+          <url>jdbc:mysql://localhost:3306/DropBookmarks</url>
+          <username>root</username>
+          <password>surette33</password>
+        </configuration>
       </plugin>
     </plugins>
   </build>

@@ -1,51 +1,86 @@
 package com.innovateEDU.core;
 
-import java.security.Principal;
-import java.util.Set;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import java.util.ArrayList;
+import java.util.Objects;
 
-public class User implements Principal {
+@Entity
+@Table(name = "users")
+public class User {
 
-    private final String name;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+    
+    private String username;
 
-    private final Set<String> roles;
+    private String password;
 
     public User() {
+    }
 
-        this.name = null;
-        this.roles = null;
+    public User(String username, String password) {
+
+        this.username = username;
+        this.password  = password;
 
     }
 
-    public User(String name) {
-
-        this.name = name;
-        this.roles = null;
-
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 59 * hash + (int) (this.id ^ (this.id >>> 32));
+        hash = 59 * hash + Objects.hashCode(this.username);
+        hash = 59 * hash + Objects.hashCode(this.password);
+        return hash;
     }
 
-    public User(String name, Set<String> roles) {
-
-        this.name = name;
-        this.roles = roles;
-
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final User other = (User) obj;
+        if (this.id != other.id) {
+            return false;
+        }
+        if (!Objects.equals(this.username, other.username)) {
+            return false;
+        }
+        if (!Objects.equals(this.password, other.password)) {
+            return false;
+        }
+        return true;
     }
 
-    public String getName() {
-
-        return name;
-
+    public String getPassword() {
+        return password;
     }
 
-    public int getId() {
-
-        return (int) (Math.random() * 100);
-
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public Set<String> getRoles() {
+    public String getUsername() {
+        return username;
+    }
 
-        return roles;
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
 }

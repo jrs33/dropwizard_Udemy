@@ -117,5 +117,8 @@
     <orderEntry type="library" name="Maven: antlr:antlr:2.7.7" level="project" />
     <orderEntry type="library" name="Maven: org.jboss:jandex:1.1.0.Final" level="project" />
     <orderEntry type="library" name="Maven: mysql:mysql-connector-java:5.1.36" level="project" />
+    <orderEntry type="library" name="Maven: io.dropwizard:dropwizard-migrations:0.9.2" level="project" />
+    <orderEntry type="library" name="Maven: org.liquibase:liquibase-core:3.4.1" level="project" />
+    <orderEntry type="library" name="Maven: com.mattbertolini:liquibase-slf4j:1.2.1" level="project" />
   </component>
 </module>

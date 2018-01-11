@@ -3,6 +3,8 @@ package com.innovateEDU;
 import io.dropwizard.Application;
 import io.dropwizard.auth.*;
 import io.dropwizard.auth.basic.BasicCredentialAuthFilter;
+import io.dropwizard.db.DataSourceFactory;
+import io.dropwizard.migrations.MigrationsBundle;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 
@@ -26,7 +28,14 @@ public class innovateLockerApplication extends Application<innovateLockerConfigu
 
     @Override
     public void initialize(final Bootstrap<innovateLockerConfiguration> bootstrap) {
-        // TODO: application initialization
+        bootstrap.addBundle(new MigrationsBundle<innovateLockerConfiguration>() {
+
+            @Override
+            public DataSourceFactory getDataSourceFactory(innovateLockerConfiguration configuration) {
+                return configuration.getDataSourceFactory();
+            }
+            
+        });
     }
 
     @Override
