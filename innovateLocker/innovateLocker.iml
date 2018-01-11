@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
-  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_7">
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8">
     <output url="file://$MODULE_DIR$/target/classes" />
     <output-test url="file://$MODULE_DIR$/target/test-classes" />
     <content url="file://$MODULE_DIR$">
@@ -120,5 +120,6 @@
     <orderEntry type="library" name="Maven: io.dropwizard:dropwizard-migrations:0.9.2" level="project" />
     <orderEntry type="library" name="Maven: org.liquibase:liquibase-core:3.4.1" level="project" />
     <orderEntry type="library" name="Maven: com.mattbertolini:liquibase-slf4j:1.2.1" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: com.h2database:h2:1.4.190" level="project" />
   </component>
 </module>
