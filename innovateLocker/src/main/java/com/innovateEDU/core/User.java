@@ -7,8 +7,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+
 import java.security.Principal;
-import java.util.ArrayList;
 import java.util.Objects;
 
 @Entity

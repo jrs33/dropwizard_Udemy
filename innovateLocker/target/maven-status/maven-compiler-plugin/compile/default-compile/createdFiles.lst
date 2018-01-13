@@ -1,7 +1,10 @@
-com/innovateEDU/innovateLockerApplication$1.class
 com/innovateEDU/innovateLockerApplication.class
 com/innovateEDU/core/User.class
 com/innovateEDU/resources/HelloResource.class
 com/innovateEDU/innovateLockerConfiguration.class
+com/innovateEDU/auth/DBAuthenticator.class
+com/innovateEDU/db/UserDAO.class
+com/innovateEDU/innovateLockerApplication$1.class
+com/innovateEDU/innovateLockerApplication$2.class
 com/innovateEDU/auth/HelloAuthenticator.class
 com/innovateEDU/auth/HelloAuthorizer.class

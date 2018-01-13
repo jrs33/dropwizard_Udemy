@@ -1,4 +1,6 @@
 /Users/joshsurette/Desktop/innovateEDU-coach/innovateLocker/src/main/java/com/innovateEDU/resources/HelloResource.java
+/Users/joshsurette/Desktop/innovateEDU-coach/innovateLocker/src/main/java/com/innovateEDU/auth/DBAuthenticator.java
+/Users/joshsurette/Desktop/innovateEDU-coach/innovateLocker/src/main/java/com/innovateEDU/db/UserDAO.java
 /Users/joshsurette/Desktop/innovateEDU-coach/innovateLocker/src/main/java/com/innovateEDU/innovateLockerApplication.java
 /Users/joshsurette/Desktop/innovateEDU-coach/innovateLocker/src/main/java/com/innovateEDU/core/User.java
 /Users/joshsurette/Desktop/innovateEDU-coach/innovateLocker/src/main/java/com/innovateEDU/auth/HelloAuthenticator.java

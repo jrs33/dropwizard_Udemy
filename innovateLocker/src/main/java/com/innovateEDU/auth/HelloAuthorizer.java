@@ -8,7 +8,7 @@ public class HelloAuthorizer implements Authorizer<User> {
     @Override
     public boolean authorize(User user, String role) {
 
-        return user.getName().equals("good-guy") && role.equals("ADMIN");
+        return user.getName().equals(true) && role.equals(true);
 
     }
 
