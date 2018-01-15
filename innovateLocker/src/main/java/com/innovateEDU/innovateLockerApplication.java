@@ -1,7 +1,9 @@
 package com.innovateEDU;
 
 import com.innovateEDU.auth.DBAuthenticator;
+import com.innovateEDU.db.BookmarkDAO;
 import com.innovateEDU.db.UserDAO;
+import com.innovateEDU.resources.BookmarksResource;
 import io.dropwizard.Application;
 import io.dropwizard.auth.*;
 import io.dropwizard.auth.basic.BasicCredentialAuthFilter;
@@ -18,11 +20,12 @@ import com.innovateEDU.resources.HelloResource;
 import com.innovateEDU.auth.HelloAuthenticator;
 import com.innovateEDU.auth.HelloAuthorizer;
 import com.innovateEDU.core.User;
+import com.innovateEDU.core.Bookmark;
 
 public class innovateLockerApplication extends Application<innovateLockerConfiguration> {
 
     private final HibernateBundle<innovateLockerConfiguration> hibernateBundle
-            = new HibernateBundle<innovateLockerConfiguration>(User.class) {
+            = new HibernateBundle<innovateLockerConfiguration>(User.class, Bookmark.class) {
         @Override
         public PooledDataSourceFactory getDataSourceFactory(innovateLockerConfiguration configuration) {
             return configuration.getDataSourceFactory();
@@ -59,9 +62,18 @@ public class innovateLockerApplication extends Application<innovateLockerConfigu
         final UserDAO userDAO
                 = new UserDAO(hibernateBundle.getSessionFactory());
 
+        final BookmarkDAO bookmarkDAO
+                = new BookmarkDAO(hibernateBundle.getSessionFactory());
+
+        // database backed resource
+        environment.jersey().register(
+                new BookmarksResource(bookmarkDAO)
+        );
+
         environment.jersey().register(
                 new HelloResource()
         );
+
         environment.jersey().register(new AuthDynamicFeature(
                 new BasicCredentialAuthFilter.Builder<User>()
                         .setAuthenticator(new DBAuthenticator(userDAO))
@@ -69,6 +81,7 @@ public class innovateLockerApplication extends Application<innovateLockerConfigu
                         .setRealm("SECURITY REALM")
                         .buildAuthFilter()
         ));
+        
         environment.jersey().register(RolesAllowedDynamicFeature.class);
 
     }

@@ -16,4 +16,4 @@ database:
   driverClass: com.mysql.jdbc.Driver
   user: root
   password: surette33
-  url: jdbc:mysql://localhost:3306/users
+  url: jdbc:mysql://localhost:3306/dropbookmarks

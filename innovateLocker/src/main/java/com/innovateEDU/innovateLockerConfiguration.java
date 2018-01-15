@@ -7,7 +7,6 @@ import org.hibernate.validator.constraints.*;
 
 import javax.validation.Valid;
 import javax.validation.constraints.*;
-import javax.xml.crypto.Data;
 
 public class innovateLockerConfiguration extends Configuration {
 
