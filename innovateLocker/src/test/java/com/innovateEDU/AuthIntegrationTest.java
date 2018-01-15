@@ -76,7 +76,7 @@ public class AuthIntegrationTest {
         assertEquals(Response.Status.UNAUTHORIZED.getStatusCode(), response.getStatus());
     }
 
-    /*@Test
+    @Test
     public void testGoodPath() {
         String expected = "Hello secured world";
         client.register(FEATURE);
@@ -86,6 +86,6 @@ public class AuthIntegrationTest {
                 .request(MediaType.TEXT_PLAIN)
                 .get(String.class);
         assertEquals(expected, actual);
-    }*/
+    }
 
 }

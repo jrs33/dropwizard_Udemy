@@ -9,7 +9,7 @@ import java.util.Objects;
 @Table(name = "bookmarks")
 @NamedQueries({
         @NamedQuery(name = "com.innovateEDU.core.Bookmark.findForUser",
-                query = "select b from Bookmark b where b.user.id = :id"),
+                query = "select b from Bookmark b where b.owner.id = :id"),
         @NamedQuery(name = "com.innovateEDU.core.Bookmark.remove",
                 query = "delete from Bookmark b where b.id = :id")
 
@@ -23,6 +23,7 @@ public class Bookmark {
     private String url;
     private String description;
     @JsonIgnore
+    @ManyToOne
     private User owner;
 
     public Bookmark() {

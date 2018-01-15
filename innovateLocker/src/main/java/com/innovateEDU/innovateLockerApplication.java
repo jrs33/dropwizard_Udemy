@@ -81,7 +81,7 @@ public class innovateLockerApplication extends Application<innovateLockerConfigu
                         .setRealm("SECURITY REALM")
                         .buildAuthFilter()
         ));
-        
+
         environment.jersey().register(RolesAllowedDynamicFeature.class);
 
     }
